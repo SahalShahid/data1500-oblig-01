@@ -13,40 +13,43 @@
 ### Oppgave 1.1: Entiteter og attributter
 
 **Identifiserte entiteter:**
+Kunde,
+Sykkel,
+Sykkelstasjon,
+Lås,
+Utleie,
 
-
-Kunde
-Sykkel
-Sykkelstasjon
-Lås
-Utleie
-Attributter for hver entitet:
-Kunde
-kunde_id (Primærnøkkel)
-fornavn
-etternavn
-mobilnummer
-epost
+**Attributter for hver entitet:**
+**Kunde**
+kunde_id (Primærnøkkel),
+fornavn,
+etternavn,
+mobilnummer,
+epost,
 betalingsreferanse
-Sykkel
-sykkel_id (Primærnøkkel)
-status (tilgjengelig, utleid, ute_av_drift)
+
+**Sykkel**
+sykkel_id (Primærnøkkel),
+status (tilgjengelig, utleid, ute_av_drift),
 stasjon_id (Fremmednøkkel, kan være NULL når sykkelen er utleid)
-Sykkelstasjon
-stasjon_id (Primærnøkkel)
-navn
-adresse
-kapasitet
-Lås
-lås_id (Primærnøkkel)
-stasjon_id (Fremmednøkkel)
-status (ledig, opptatt, defekt)
-Utleie
-utleie_id (Primærnøkkel)
-kunde_id (Fremmednøkkel)
-sykkel_id (Fremmednøkkel)
-utlevert_tidspunkt
-innlevert_tidspunkt (kan være NULL frem til levering)
+
+**Sykkelstasjon**
+stasjon_id (Primærnøkkel),
+navn,
+adresse,
+kapasitet,
+
+**Lås**
+lås_id (Primærnøkkel),
+stasjon_id (Fremmednøkkel),
+status (ledig, opptatt, defekt),
+
+**Utleie**
+utleie_id (Primærnøkkel),
+kunde_id (Fremmednøkkel),
+sykkel_id (Fremmednøkkel),
+utlevert_tidspunkt,
+innlevert_tidspunkt (kan være NULL frem til levering),
 leiebeløp
 
 **Attributter for hver entitet:**
