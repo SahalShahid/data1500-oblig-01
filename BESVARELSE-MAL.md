@@ -321,15 +321,22 @@ POLICIES håndhever sikkerhet på radnivå direkte, derfor sikrere.
 
 **Totalt antall utleier per år:**
 
-[Skriv din utregning her]
+Høysesong: 5 × 20 000 = 100 000
+Mellomsesong: 4 × 5 000 = 20 000
+Lavsesong: 3 × 500 = 1 500
+Totalt = 121 500
 
 **Estimat for lagringskapasitet:**
 
-[Skriv din utregning her - vis hvordan du har beregnet lagringskapasiteten for hver tabell]
+Kunde: 5 × ~200 B ≈ 1 KB
+Sykkelstasjon: 5 × ~150 B ≈ 1 KB
+Låser: 100 × ~50 B ≈ 5 KB
+Sykkel: 100 × ~100 B ≈ 10 KB
+Utleie: 121 500 × ~150 B ≈ 18 MB
 
 **Totalt for første år:**
 
-[Skriv ditt estimat her]
+18–20 MB
 
 ---
 
@@ -339,31 +346,34 @@ POLICIES håndhever sikkerhet på radnivå direkte, derfor sikrere.
 
 **Problem 1: Redundans**
 
-[Skriv ditt svar her - gi konkrete eksempler fra CSV-filen som viser redundans]
+Kundedata og sykkeldata gjentas for hver utleie i CSV.
 
 **Problem 2: Inkonsistens**
 
-[Skriv ditt svar her - forklar hvordan redundans kan føre til inkonsistens med eksempler]
+Endring i kundens epost krever oppdatering i alle utleierader.
 
 **Problem 3: Oppdateringsanomalier**
 
-[Skriv ditt svar her - diskuter slette-, innsettings- og oppdateringsanomalier]
+Sletting av utleie kan utilsiktet fjerne kundedata.
+Innsetting krever duplikater av kundedata.
+Oppdatering av sykkeldata må gjøres i alle rader.
 
 **Fordeler med en indeks:**
 
-[Skriv ditt svar her - forklar hvorfor en indeks ville gjort spørringen mer effektiv]
+Rask tilgang til alle utleier for en gitt sykkel.
 
 **Case 1: Indeks passer i RAM**
 
-[Skriv ditt svar her - forklar hvordan indeksen fungerer når den passer i minnet]
+direkte oppslag i minnet.
 
 **Case 2: Indeks passer ikke i RAM**
 
-[Skriv ditt svar her - forklar hvordan flettesortering kan brukes]
+flettesortering på disk (B+-tre).
 
 **Datastrukturer i DBMS:**
 
-[Skriv ditt svar her - diskuter B+-tre og hash-indekser]
+B+-tre: effektiv for søk og intervallspørringer.
+Hash-indekser: effektiv for eksakt oppslag.
 
 ---
 
@@ -371,17 +381,17 @@ POLICIES håndhever sikkerhet på radnivå direkte, derfor sikrere.
 
 **Foreslått datastruktur:**
 
-[Skriv ditt svar her - f.eks. heap-fil, LSM-tree, eller annen egnet datastruktur]
+LSM-tree
 
 **Begrunnelse:**
 
 **Skrive-operasjoner:**
 
-[Skriv ditt svar her - forklar hvorfor datastrukturen er egnet for mange skrive-operasjoner]
+Sekvensielt lagret, optimalisert for mange innsettinger.
 
 **Lese-operasjoner:**
 
-[Skriv ditt svar her - forklar hvordan datastrukturen håndterer sjeldne lese-operasjoner]
+Kombinerer flere nivåer for effektiv søking, caching mulig.
 
 ---
 
@@ -389,23 +399,26 @@ POLICIES håndhever sikkerhet på radnivå direkte, derfor sikrere.
 
 **Hvor bør validering gjøres:**
 
-[Skriv ditt svar her - argumenter for validering i ett eller flere lag]
+Flere lag for sikkerhet og UX.
 
 **Validering i nettleseren:**
 
-[Skriv ditt svar her - diskuter fordeler og ulemper]
+Fordel: Rask tilbakemelding
+Ulempe: Kan omgås
 
 **Validering i applikasjonslaget:**
 
-[Skriv ditt svar her - diskuter fordeler og ulemper]
+Fordel: Kontrollert miljø, logikk og feilmeldinger
+Ulempe: Mer kode å vedlikeholde
 
 **Validering i databasen:**
 
-[Skriv ditt svar her - diskuter fordeler og ulemper]
+Fordel: Sikrer integritet uansett klient
+Ulempe: Mindre fleksibelt
 
 **Konklusjon:**
 
-[Skriv ditt svar her - oppsummer hvor validering bør gjøres og hvorfor]
+Kombinasjon av alle tre lag anbefales.
 
 ---
 
@@ -413,21 +426,22 @@ POLICIES håndhever sikkerhet på radnivå direkte, derfor sikrere.
 
 **Hva har du lært så langt i emnet:**
 
-[Skriv din refleksjon her - diskuter sentrale konsepter du har lært]
+Relasjonsdatabaser, ER-diagrammer, normalisering, SQL, tilgangskontroll, indekser.
+Effektiv datamodellering, integritet og sikkerhet.
 
 **Hvordan har denne oppgaven bidratt til å oppnå læringsmålene:**
 
-[Skriv din refleksjon her - koble oppgaven til læringsmålene i emnet]
-
-Se oversikt over læringsmålene i en PDF-fil i Canvas https://oslomet.instructure.com/courses/33293/files/folder/Plan%20v%C3%A5ren%202026?preview=4370886
+Praktisk erfaring med design, SQL, tilgangskontroll og refleksjon.
 
 **Hva var mest utfordrende:**
 
-[Skriv din refleksjon her - diskuter hvilke deler av oppgaven som var mest krevende]
+Normalisering, balanse mellom sikkerhet og effektivitet, lagringsberegninger.
 
 **Hva har du lært om databasedesign:**
 
-[Skriv din refleksjon her - reflekter over prosessen med å designe en database fra bunnen av]
+Planlegging av entiteter, forhold og nøkkelbegrensninger.
+Riktig strukturering reduserer redundans og anomalier.
+Tilgangskontroll og policies forbedrer sikkerhet og integritet.
 
 ---
 
