@@ -1,6 +1,6 @@
 # Besvarelse - Refleksjon og Analyse
 
-**Student:** [Ditt navn]
+**Student:** Mohammad Sahal Shahid
 
 **Studentnummer:** [Ditt studentnummer]
 
