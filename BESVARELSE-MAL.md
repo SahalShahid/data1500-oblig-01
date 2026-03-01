@@ -449,7 +449,7 @@ Tilgangskontroll og policies forbedrer sikkerhet og integritet.
 
 **Plassering av SQL-spørringer:**
 
-[Bekreft at du har lagt SQL-spørringene i `test-scripts/queries.sql`]
+[Bekreft at du har lagt SQL-spørringene i `test-scripts/queries.sql`] NB! Skjønte ikke
 
 
 **Eventuelle feil og rettelser:**
