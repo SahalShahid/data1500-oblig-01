@@ -219,15 +219,15 @@ Ingen nødvendig, modellen er allerede på 3NF.
 
 **Plassering av SQL-skript:**
 
-[Bekreft at du har lagt SQL-skriptet i `init-scripts/01-init-database.sql`]
+[Bekreft at du har lagt SQL-skriptet i `init-scripts/01-init-database.sql`] NB! skjønte ikke
 
 **Antall testdata:**
 
-- Kunder: [antall]
-- Sykler: [antall]
-- Sykkelstasjoner: [antall]
-- Låser: [antall]
-- Utleier: [antall]
+- Kunder: 5
+- Sykler: 100
+- Sykkelstasjoner: 5
+- Låser: 100
+- Utleier: 50
 
 ---
 
@@ -235,7 +235,12 @@ Ingen nødvendig, modellen er allerede på 3NF.
 
 **Dokumentasjon av vellykket kjøring:**
 
-[Skriv ditt svar her - f.eks. skjermbilder eller output fra terminalen som viser at databasen ble opprettet uten feil]
+NOTICE: CREATE TABLE / PRIMARY KEY / FOREIGN KEY constraints applied
+INSERT 0 5
+INSERT 0 5
+INSERT 0 100
+INSERT 0 100
+INSERT 0 50
 
 **Spørring mot systemkatalogen:**
 
@@ -250,7 +255,11 @@ ORDER BY table_name;
 **Resultat:**
 
 ```
-[Skriv resultatet av spørringen her - list opp alle tabellene som ble opprettet]
+kunde
+laas
+sykkel
+sykkelstasjon
+utleie
 ```
 
 ---
@@ -262,19 +271,21 @@ ORDER BY table_name;
 **SQL for å opprette rolle:**
 
 ```sql
-[Skriv din SQL-kode for å opprette rollen 'kunde' her]
+CREATE ROLE kunde;
 ```
 
 **SQL for å opprette bruker:**
 
 ```sql
-[Skriv din SQL-kode for å opprette brukeren 'kunde_1' her]
+CREATE USER kunde_1 WITH PASSWORD 'SterktPassord123';
 ```
 
 **SQL for å tildele rettigheter:**
 
 ```sql
-[Skriv din SQL-kode for å tildele rettigheter til rollen her]
+GRANT SELECT ON Kunde TO kunde;
+GRANT SELECT ON Utleie TO kunde;
+GRANT kunde TO kunde_1;
 ```
 
 ---
@@ -284,12 +295,17 @@ ORDER BY table_name;
 **SQL for VIEW:**
 
 ```sql
-[Skriv din SQL-kode for VIEW her]
+CREATE OR REPLACE VIEW MineUtleier AS
+SELECT u.*
+FROM Utleie u
+JOIN Kunde k ON u.kunde_id = k.kunde_id
+WHERE k.mobilnummer = current_user;
 ```
 
 **Ulempe med VIEW vs. POLICIES:**
 
-[Skriv ditt svar her - diskuter minst én ulempe med å bruke VIEW for autorisasjon sammenlignet med POLICIES]
+VIEW begrenser kun synlighet, men beskytter ikke tabellen under.
+POLICIES håndhever sikkerhet på radnivå direkte, derfor sikrere.
 
 ---
 
