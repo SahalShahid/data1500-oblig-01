@@ -196,19 +196,20 @@ Lås.stasjon_id → Sykkelstasjon(stasjon_id
 
 **Vurdering av 1. normalform (1NF):**
 
-[Skriv ditt svar her - forklar om datamodellen din tilfredsstiller 1NF og hvorfor]
+Alle attributter atomære, alle tabeller har primærnøkkel → tilfredsstiller 1NF.
 
 **Vurdering av 2. normalform (2NF):**
 
-[Skriv ditt svar her - forklar om datamodellen din tilfredsstiller 2NF og hvorfor]
+Alle tabeller har enkel primærnøkkel, ingen delvise avhengigheter → tilfredsstiller 2NF.
+
 
 **Vurdering av 3. normalform (3NF):**
 
-[Skriv ditt svar her - forklar om datamodellen din tilfredsstiller 3NF og hvorfor]
+Ingen transitive avhengigheter, alle ikke-nøkkelattributter direkte avhengige av primærnøkkel → tilfredsstiller 3NF.
 
 **Eventuelle justeringer:**
 
-[Skriv ditt svar her - hvis modellen ikke var på 3NF, forklar hvilke justeringer du har gjort]
+Ingen nødvendig, modellen er allerede på 3NF.
 
 ---
 
