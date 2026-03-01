@@ -157,27 +157,34 @@ UTLEIE {
 
 **Valgte primærnøkler og begrunnelser:**
 
-[Skriv ditt svar her - forklar hvilke primærnøkler du har valgt for hver entitet og hvorfor]
+Alle entiteter har enkelt primærnøkkel: kunde_id, sykkel_id, stasjon_id, lås_id, utleie_id.
+Enkelt, effektivt og sikrer entydig identifikasjon.
 
 **Naturlige vs. surrogatnøkler:**
 
-[Skriv ditt svar her - diskuter om du har brukt naturlige eller surrogatnøkler og hvorfor]
+Bruker surrogatnøkler (SERIAL) for alle tabeller.
+Fordel: Unik identifikator uavhengig av attributtverdier.
 
 **Oppdatert ER-diagram:**
 
-[Legg inn mermaid-kode eller eventuelt en bildefil fra `mermaid.live` her]
-
+Skjønte ikke
 ---
 
 ### Oppgave 1.4: Forhold og fremmednøkler
 
 **Identifiserte forhold og kardinalitet:**
 
-[Skriv ditt svar her - list opp alle forholdene mellom entitetene og angi kardinalitet]
+Kunde – Utleie: 1:M
+Sykkel – Utleie: 1:M
+Sykkelstasjon – Sykkel: 1:M
+Sykkelstasjon – Lås: 1:M
 
 **Fremmednøkler:**
 
-[Skriv ditt svar her - list opp alle fremmednøklene og forklar hvordan de implementerer forholdene]
+Utleie.kunde_id → Kunde(kunde_id)
+Utleie.sykkel_id → Sykkel(sykkel_id)
+Sykkel.stasjon_id → Sykkelstasjon(stasjon_id), NULL når utleid
+Lås.stasjon_id → Sykkelstasjon(stasjon_id
 
 **Oppdatert ER-diagram:**
 
