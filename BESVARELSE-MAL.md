@@ -2,9 +2,9 @@
 
 **Student:** Mohammad Sahal Shahid
 
-**Studentnummer:** [Ditt studentnummer]
+**Studentnummer:** 407505
 
-**Dato:** [Innleveringsdato]
+**Dato:** 01.03.26
 
 ---
 
