@@ -95,10 +95,60 @@ leiebeløp → DECIMAL(8,2)
 
 **`CHECK`-constraints:**
 
-[Skriv ditt svar her - list opp alle CHECK-constraints du har lagt til og forklar hvorfor de er nødvendige]
+Sykkel.status → CHECK (status IN ('tilgjengelig','utleid','ute_av_drift'))
+
+Lås.status → CHECK (status IN ('ledig','opptatt','defekt'))
+
+Sykkelstasjon.kapasitet → CHECK (kapasitet > 0)
+
+Utleie.leiebeløp → CHECK (leiebelop >= 0)
+
+Utleie.innlevert_tidspunkt → CHECK (innlevert_tidspunkt IS NULL OR innlevert_tidspunkt >= utlevert_tidspunkt)
+
+Kunde.epost → CHECK (epost LIKE '%@%.%')
+
+Kunde.mobilnummer → CHECK (mobilnummer ~ '^[0-9+]+$')
 
 **ER-diagram:**
+KUNDE ||--o{ UTLEIE : har
+SYKKEL ||--o{ UTLEIE : brukes_i
+STASJON ||--o{ LAAS : har
+STASJON ||--o{ SYKKEL : inneholder
 
+KUNDE {
+    int kunde_id PK
+    varchar fornavn
+    varchar etternavn
+    varchar mobil
+    varchar epost
+}
+
+SYKKEL {
+    int sykkel_id PK
+    date registrert_dato
+    int stasjon_id FK
+    int laas_id FK
+}
+
+STASJON {
+    int stasjon_id PK
+    varchar navn
+    varchar adresse
+}
+
+LAAS {
+    int laas_id PK
+    int stasjon_id FK
+}
+
+UTLEIE {
+    int utleie_id PK
+    int kunde_id FK
+    int sykkel_id FK
+    timestamp utlevert
+    timestamp innlevert
+    numeric beloep
+} 
 [Legg inn mermaid-kode eller eventuelt en bildefil fra `mermaid.live` her]
 
 ---
