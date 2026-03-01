@@ -52,17 +52,46 @@ utlevert_tidspunkt,
 innlevert_tidspunkt (kan være NULL frem til levering),
 leiebeløp
 
-**Attributter for hver entitet:**
 
-[Skriv ditt svar her - list opp attributtene for hver entitet]
 
 ---
 
 ### Oppgave 1.2: Datatyper og `CHECK`-constraints
 
+
 **Valgte datatyper og begrunnelser:**
 
-[Skriv ditt svar her - forklar hvilke datatyper du har valgt for hver attributt og hvorfor]
+**Kunde:**
+kunde_id → INT (PRIMARY KEY, SERIAL)
+fornavn → VARCHAR(50)
+etternavn → VARCHAR(50)
+mobilnummer → VARCHAR(15)
+epost → VARCHAR(100)
+betalingsreferanse → VARCHAR(100)
+
+**Sykkel:**
+sykkel_id → INT (PRIMARY KEY),
+status → VARCHAR(20),
+stasjon_id → INT (FOREIGN KEY, NULL tillatt),
+
+**Sykkelstasjon:**
+stasjon_id → INT (PRIMARY KEY)
+navn → VARCHAR(100)
+adresse → VARCHAR(150)
+kapasitet → INT
+
+**Lås:**
+lås_id → INT (PRIMARY KEY)
+stasjon_id → INT (FOREIGN KEY)
+status → VARCHAR(20)
+
+**Utleie:**
+utleie_id → INT (PRIMARY KEY),
+kunde_id → INT (FOREIGN KEY),
+sykkel_id → INT (FOREIGN KEY),
+utlevert_tidspunkt → TIMESTAMP,
+innlevert_tidspunkt → TIMESTAMP (NULL tillatt),
+leiebeløp → DECIMAL(8,2)
 
 **`CHECK`-constraints:**
 
