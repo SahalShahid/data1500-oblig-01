@@ -228,7 +228,8 @@ Kunder: 5
 Sykler: 100  
 Sykkelstasjoner: 5  
 Låser: 100 (20 per stasjon)  
-Utleier: 50 
+Utleier: 50  
+
 
 ---
 
