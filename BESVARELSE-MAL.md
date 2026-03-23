@@ -219,15 +219,16 @@ Ingen nødvendig, modellen er allerede på 3NF.
 
 **Plassering av SQL-skript:**
 
-[Bekreft at du har lagt SQL-skriptet i `init-scripts/01-init-database.sql`] NB! skjønte ikke
+SQL-skriptet er lagret i mappen:
+init-scripts/01-init-database.sql
 
 **Antall testdata:**
 
-- Kunder: 5
-- Sykler: 100
-- Sykkelstasjoner: 5
-- Låser: 100
-- Utleier: 50
+Kunder: 5  
+Sykler: 100  
+Sykkelstasjoner: 5  
+Låser: 100 (20 per stasjon)  
+Utleier: 50 
 
 ---
 
@@ -235,32 +236,35 @@ Ingen nødvendig, modellen er allerede på 3NF.
 
 **Dokumentasjon av vellykket kjøring:**
 
-NOTICE: CREATE TABLE / PRIMARY KEY / FOREIGN KEY constraints applied
-INSERT 0 5
-INSERT 0 5
-INSERT 0 100
-INSERT 0 100
-INSERT 0 50
+Ved kjøring av `docker-compose up` ble databasen initialisert uten feil.  
+Alle tabeller ble opprettet, og testdata ble satt inn som forventet.
+
+**Eksempel på output fra terminal:**
+
+CREATE TABLE  
+INSERT 0 5  
+INSERT 0 5  
+INSERT 0 100  
+INSERT 0 100  
+INSERT 0 50  
+
+---
 
 **Spørring mot systemkatalogen:**
 
-```sql
 SELECT table_name 
 FROM information_schema.tables 
 WHERE table_schema = 'public' 
   AND table_type = 'BASE TABLE'
 ORDER BY table_name;
-```
 
 **Resultat:**
 
-```
-kunde
-laas
-sykkel
-sykkelstasjon
-utleie
-```
+kunde  
+laas  
+sykkel  
+sykkelstasjon  
+utleie  
 
 ---
 
