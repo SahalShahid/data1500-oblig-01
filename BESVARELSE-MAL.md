@@ -454,12 +454,12 @@ Tilgangskontroll og policies forbedrer sikkerhet og integritet.
 
 **Plassering av SQL-spørringer:**
 
-[Bekreft at du har lagt SQL-spørringene i `test-scripts/queries.sql`] NB! Skjønte ikke
+SQL-spørringene er lagt i test-scripts/queries.sql. Filen inneholder alle spørringene fra oppgave 5.1 til 5.8, og er testet mot databasen med de aktuelle testdataene.
 
 
 **Eventuelle feil og rettelser:**
 
-[Skriv ditt svar her - hvis noen tester feilet, forklar hva som var feil og hvordan du rettet det]
+Alle spørringene ga forventet resultat ved første kjøring, så ingen feil måtte rettes. Datoen i spørringer som filtrerer på dato (5.3 og 5.8) er justert til å passe testdataene som er lagt inn under database-initialisering.
 
 ---
 
